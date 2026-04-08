@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: tram-huong-shop
+    runtime: node
+    rootDir: server
+    buildCommand: npm install && cd ../client-admin && npm install --legacy-peer-deps && npm run build && cd ../client-customer && npm install --legacy-peer-deps && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
