@@ -1,0 +1,224 @@
+/* MenuComponent.css - Premium Dropdown for Trầm Tịnh */
+
+#main-nav-wrapper {
+  z-index: 1000 !important; /* Higher than other sticky bars (default 100) */
+  overflow: visible !important; /* Ensure dropdown is not clipped */
+  position: sticky !important;
+  top: 0;
+}
+
+.main-navigation {
+  padding: 1.2rem var(--space-lg);
+  background-color: var(--background-color);
+  z-index: 1001;
+  position: relative;
+}
+
+ul.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+li.menu-item {
+  position: relative;
+  padding: var(--space-xs) 0;
+}
+
+li.menu-item a {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-bottom: 4px;
+  position: relative;
+}
+
+li.menu-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+li.menu-item:hover > a::after {
+  width: 100%;
+}
+
+/* Dropdown Container */
+.dropdown {
+  cursor: pointer;
+}
+
+.dropdown-indicator {
+  margin-left: 6px;
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dropdown:hover .dropdown-indicator {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Sub-menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -15px;
+  width: 240px;
+  background-color: #FDFBFA; /* Slightly lighter beige */
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  padding: var(--space-sm) 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+  z-index: 1002;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 500;
+}
+
+.dropdown-menu li a::after {
+  display: none; /* No underline in dropdown */
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--light-beige);
+  color: var(--primary-color);
+  padding-left: 1.8rem;
+}
+
+/* Loading & Error Helpers */
+.loading-text { font-style: italic; color: var(--text-light); }
+.error-text { color: #8B0000; font-size: 0.8rem; }
+
+/* ===== Premium Header Action Buttons (Profile & Cart) ===== */
+.header-actions {
+  display: flex;
+  align-items: center;  /* Center the buttons to the search bar */
+  gap: var(--space-sm);
+  margin-left: var(--space-md);
+  height: 42px;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent; /* Remove heavy beige box for luxury feel */
+  padding: 0 10px;
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+  border-left: 1px solid var(--border-color); /* Subtle divider instead of boxes */
+  cursor: pointer;
+  height: 32px; /* Slight offset from full 42px */
+}
+
+/* Specific adjustment for the first item to remove the left border */
+.action-item:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.action-item:hover {
+  color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+.action-item:hover .text-name,
+.action-item:hover .cart-count,
+.action-item:hover .action-icon {
+  color: var(--accent-color);
+}
+
+.action-icon {
+  font-size: 1.4rem;  /* Slightly larger for elegance */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.action-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.action-link-tiny {
+  font-size: 0.75rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.action-link-tiny:hover {
+  color: var(--accent-color);
+}
+
+.text-greeting {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
+}
+
+.text-name, .cart-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.user-menu-dropdown {
+  left: auto;
+  right: 0;
+  width: 180px;
+  top: calc(100% + 5px); /* Clean dropdown hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #main-nav-wrapper { position: relative !important; }
+  .main-navigation { padding: 1rem; }
+  ul.menu { gap: var(--space-sm); overflow-x: auto; padding-bottom: 5px; }
+  li.menu-item a { font-size: 0.85rem; }
+}
