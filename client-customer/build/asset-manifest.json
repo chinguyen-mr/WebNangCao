@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ecbb7946.css",
+    "main.js": "/static/js/main.da77eda3.js",
+    "index.html": "/index.html",
+    "main.ecbb7946.css.map": "/static/css/main.ecbb7946.css.map",
+    "main.da77eda3.js.map": "/static/js/main.da77eda3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ecbb7946.css",
+    "static/js/main.da77eda3.js"
+  ]
+}
