@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /signup
+Disallow: /myprofile
+Disallow: /myorders
+Disallow: /mycart
+Disallow: /active
+
+Sitemap: https://tramtinh.vn/sitemap.xml
